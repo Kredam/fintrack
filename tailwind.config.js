@@ -1,17 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}'
+  ],
   theme: {
     extend: {
       colors: {
         semantics: {
           warning: '#FFBE0F',
           error: '#BD2000',
-          success: '#1A5D1A'
+          success: '#1A5D1A',
+          info: '#2196F3'
         },
         primary: '#393E46',
         background: '#222831',
-        secondary: '#00ADB5'
+        // secondary: '#00ADB5',
+        accent: {
+          positive: '#7BC74D',
+          negative: '#BD2000'
+        }
       }
     }
   },
