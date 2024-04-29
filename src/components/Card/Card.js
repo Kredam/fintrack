@@ -10,7 +10,7 @@ const CardHeader = styled('div')(styles)
 const CardBody = styled('div')(styles)
 
 const Card = ({ title, children }) => {
-  const [open, setOpen] = useState(readFromLocalStorage(`dashboard.open.${title}`) || false)
+  const [open, setOpen] = useState(readFromLocalStorage(`dashboard.open.${title}`) || true)
 
   const handleOpen = () => {
     saveToLocalStorage(`dashboard.open.${title}`, !open)
@@ -25,7 +25,7 @@ const Card = ({ title, children }) => {
                 <button className='bg-primary text-white rounded-md' onClick={handleOpen}>{!open ? <FaArrowUp /> : <FaArrowDown />}</button>
             </div>
         </CardHeader>
-        <CardBody className='p-4'>
+        <CardBody className={clsx({ 'p-4': !open })}>
             <div className={clsx('Card-body', { 'Card-body--closed': open })}>
                 {children}
             </div>
