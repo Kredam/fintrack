@@ -4,8 +4,8 @@ import React from 'react'
 const SidebarItem = ({ icon, title }) => {
   return (
     <a className="sidebar-item">
-      <div className="mr-6">{icon}</div>
-      <div>{title}</div>
+      <div className="sm:mr-6">{icon}</div>
+      <div className='max-sm:hidden'>{title}</div>
     </a>
   )
 }
