@@ -1,9 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
     extend: {
@@ -12,12 +10,17 @@ module.exports = {
           warning: '#FFBE0F',
           error: '#BD2000',
           success: '#1A5D1A',
+          info: '#2196F3'
         },
         primary: '#393E46',
         background: '#222831',
-        secondary: '#00ADB5',
-      },
-    },
+        // secondary: '#00ADB5',
+        accent: {
+          positive: '#7BC74D',
+          negative: '#BD2000'
+        }
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 }
