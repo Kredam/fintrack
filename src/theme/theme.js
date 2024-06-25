@@ -13,7 +13,8 @@ const createTheme = () => {
         main: '#00ADB5'
       },
       accent: {
-        main: '#7BC74D'
+        positive: '#7BC74D',
+        negative: '#BD2000'
       },
       error: {
         main: '#BD2000'

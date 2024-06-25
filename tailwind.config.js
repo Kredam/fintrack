@@ -14,13 +14,20 @@ module.exports = {
         },
         primary: '#393E46',
         background: '#222831',
-        // secondary: '#00ADB5',
         accent: {
           positive: '#7BC74D',
           negative: '#BD2000'
         }
+      },
+      screens: {
+        mobile: '640px',
+        tablet: '768px',
+        laptop: '1024px',
+        desktop: '1280px'
       }
     }
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/typography')
+  ]
 }
