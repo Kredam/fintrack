@@ -28,5 +28,21 @@ module.exports = {
     'react'
   ],
   rules: {
+   "import/order": [
+    "error",
+      {
+        "newlines-between": "always-and-inside-groups",
+        "groups": [
+          "external",
+          "internal",
+          "builtin",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+      }
+  ]
   }
 }
