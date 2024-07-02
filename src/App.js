@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+
 import modules from './App.module'
 import { Sidebar } from './components'
 

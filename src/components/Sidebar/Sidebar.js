@@ -1,8 +1,9 @@
 import React from 'react'
-import { FaBalanceScale, FaHome } from 'react-icons/fa'
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai'
-import { MdSavings } from 'react-icons/md'
 import { CiSettings } from 'react-icons/ci'
+import { FaBalanceScale, FaHome } from 'react-icons/fa'
+import { MdSavings } from 'react-icons/md'
+
 import SidebarItem from './SidebarItem'
 
 const items = [
