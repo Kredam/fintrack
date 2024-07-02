@@ -1,18 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+
 import './index.css'
-import App from './App'
 import { BrowserRouter } from 'react-router-dom'
-import { CssBaseline, createTheme, ThemeProvider } from '@mui/material'
+import { CssBaseline, ThemeProvider } from '@mui/material'
 import { SnackbarProvider } from 'notistack'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+import queryConfig from '../tanstack.config.json'
+
+import App from './App'
+import createTheme from './theme/theme'
 
 const theme = createTheme()
+
+export const queryClient = new QueryClient(queryConfig)
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <CssBaseline />
+    <QueryClientProvider client={queryClient}>
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <BrowserRouter>
         <SnackbarProvider
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
@@ -23,5 +32,6 @@ root.render(
         </SnackbarProvider>
       </BrowserRouter>
     </ThemeProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 )
