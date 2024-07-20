@@ -7,14 +7,12 @@ import { CssBaseline, ThemeProvider } from '@mui/material'
 import { SnackbarProvider } from 'notistack'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-import queryConfig from '../tanstack.config.json'
-
 import App from './App'
 import createTheme from './theme/theme'
 
 const theme = createTheme()
 
-export const queryClient = new QueryClient(queryConfig)
+const queryClient = new QueryClient()
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
