@@ -12,7 +12,7 @@ import createTheme from './theme/theme'
 
 const theme = createTheme()
 
-export const queryClient = new QueryClient()
+const queryClient = new QueryClient()
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

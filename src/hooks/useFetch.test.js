@@ -60,13 +60,18 @@ describe('Parallel queries', () => {
       id: param
     }
   }))
-  const config = { api: mockBaseApi, id: 'test', services }
+  const config = { api: mockBaseApi, id: 'test', services, key: 'params.id' }
+  const queries = [
+    { queryKey: [config.id, 0], queryFn: expect.any(Function) },
+    { queryKey: [config.id, 1], queryFn: expect.any(Function) },
+    { queryKey: [config.id, 3], queryFn: expect.any(Function) }
+  ]
   it('useQueries', () => {
     renderHook(() => useFetch(config))
 
     expect(useQueries).toHaveBeenCalledTimes(1)
     expect(useQueries).toHaveBeenCalledWith({
-      queries: services
+      queries
     })
   })
   it('useSuspenseQueries', () => {
@@ -74,7 +79,7 @@ describe('Parallel queries', () => {
 
     expect(useSuspenseQueries).toHaveBeenCalledTimes(1)
     expect(useSuspenseQueries).toHaveBeenCalledWith({
-      queries: services
+      queries
     })
   })
 })

@@ -1,4 +1,4 @@
-import { useInfiniteQuery, useQueries, useQuery, useSuspenseInfiniteQuery, useSuspenseQueries, useSuspenseQuery, QueryClient } from '@tanstack/react-query'
+import { QueryClient, useInfiniteQuery, useQueries, useQuery, useSuspenseInfiniteQuery, useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query'
 import { isArray, get } from 'lodash'
 import { useCallback, useEffect, useMemo } from 'react'
 
@@ -14,15 +14,14 @@ const useFetch = ({ api = baseApi, id, key, services, combine, queryOptions = {}
   const queryKey = isArray(id) ? id : [id]
   const queries = useMemo(() => {
     if (isParallel) {
-      services.map((request) => {
-        const queryKey = get(request, key)
+      return services.map((request) => {
+        const id = get(request, key)
         return ({
-          queryKey: [...id, queryKey],
+          queryKey: [...queryKey, id],
           queryFn: () => fetchApi(request)
         })
       })
     }
-    return services
   }, [services, isParallel, key, id])
 
   const fetchApi = useCallback(async ({ request = services, signal }) => {
@@ -50,6 +49,7 @@ const useFetch = ({ api = baseApi, id, key, services, combine, queryOptions = {}
     return { query: useSuspenseQuery({ queryKey, queryFn: fetchApi, ...queryOptions }), fn: fetchApi }
   }
   if (isParallel) {
+    console.log(queries)
     return useQueries({ queries, combine })
   }
   return { query: useQuery({ queryKey, queryFn: fetchApi, ...queryOptions }), fn: fetchApi }
