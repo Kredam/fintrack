@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import styles from './Card.styles'
+
 import { styled } from '@mui/material'
 import clsx from 'clsx'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
+
 import { saveToLocalStorage, readFromLocalStorage } from '../../utils'
+
+import styles from './Card.styles'
 
 const CardHeader = styled('div')(styles)
 const CardBody = styled('div')(styles)
