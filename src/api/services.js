@@ -1,6 +1,6 @@
 export const sample = {
-  id: 'test',
-  service: {
-    url: '/playstation/games'
-  }
-}
+	id: 'test',
+	service: {
+		url: '/playstation/games',
+	},
+};
